@@ -59,3 +59,21 @@ Think of it like sending a letter through a post office! 📬
     L2 (Data Link) → The switch forwards the data using MAC addresses.
     L1 (Physical) → The data travels through Wi-Fi, fiber optics, or Ethernet cables.
 
+# switches - 
+# layer -2 switch - 
+In LAN, when we have 2 devices and switch then an ARP request (from device A) send to that IP address and ask for 
+mac address and then device B respond back with mac and this mac address is stores in device a ARP table and then thats how a connect with b.
+A Layer 2 switch operates at the Data Link Layer (Layer 2) of the OSI model, meaning it deals with MAC addresses rather than IP addresses.
+
+2. VLAN switch - 
+So we have more devices and we want to group them together and seperate them like this, so 5 devices for markering and 5 each for finance
+and hr, each vlan is bascially comepletely seperate neworks.
+so i will create a default gatway for each of them 3 (means vlan for each) in switch. this way these 3 cant talk to each other by default.
+- in terms of device from finace to talk to device in marketing, it will be like device f to switch then to router then back to switch then
+device m.
+
+# to aviod this long way, layer-3 switch comes to the play -
+layer-3 switch has routing capabilities. layer-3 switch allow Inter-Vlan routing, so allowing switch to route traffic without even going to 
+router. we need to configure this in the switch though and we can restrict (using ACL) this VLAN to VLAN routing but here with layer-3 switch ww have opportunity.
+
+so layer 2 switch works based on mac address but layer 3 switch works based on mac address and it has routing ability inter LAN.
