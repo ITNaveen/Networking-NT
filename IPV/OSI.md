@@ -69,11 +69,9 @@ A Layer 2 switch operates at the Data Link Layer (Layer 2) of the OSI model, mea
 So we have more devices and we want to group them together and seperate them like this, so 5 devices for markering and 5 each for finance
 and hr, each vlan is bascially comepletely seperate neworks.
 so i will create a default gatway for each of them 3 (means vlan for each) in switch. this way these 3 cant talk to each other by default.
-- in terms of device from finace to talk to device in marketing, it will be like device f to switch then to router then back to switch then
-device m.
+- in terms of device from finance to talk to device in marketing, it will be like device f to switch then to router then back to switch then device m.
 
 # to aviod this long way, layer-3 switch comes to the play -
-layer-3 switch has routing capabilities. layer-3 switch allow Inter-Vlan routing, so allowing switch to route traffic without even going to 
-router. we need to configure this in the switch though and we can restrict (using ACL) this VLAN to VLAN routing but here with layer-3 switch ww have opportunity.
+layer-3 switch has routing capabilities. layer-3 switch allow Inter-Vlan routing, so allowing switch to route traffic without even going to router. we need to configure this in the switch though and we can restrict (using ACL) this VLAN to VLAN routing but here with layer-3 switch ww have opportunity.
 
 so layer 2 switch works based on mac address but layer 3 switch works based on mac address and it has routing ability inter LAN.

@@ -7,11 +7,12 @@ A router is responsible for connecting different networks (like your LAN to the 
 # How a Frame Works in a Network
 📌 Example:
 🔹 Your PC sends a request to a printer in the same LAN.
-🔹 It creates an Ethernet frame:
 
+🔹 It creates an Ethernet frame:
 Destination MAC: Printer’s MAC 
 Source MAC: Your PC’s MAC
 Data: “Print this document”
+
 🔹 The switch reads the destination MAC and forwards the frame to the printer.
 🔹 The printer extracts the data and prints the document.
 
@@ -30,10 +31,22 @@ The switch checks its MAC address table and delivers the data to your device.
 💡 Yes, removing the switch would overload the router and slow down LAN communication! 🚀
 
 # for multi network connection or internet - 
-- we have same bulding with multiple network.
-- now lets say we have 2 network, so one network has its own switch and same with other and then how those 2 network can talk is switch - router - switch.
-- here default gateway is the ip of router.
-- Each network has its own Network Interface (NI) on the router with a unique IP.
+You have 1 router with 2 network interfaces (one for each network)
+
+Each network interface has its own CIDR block
+For example: Interface 1: 192.168.1.0/24 and Interface 2: 192.168.2.0/24
+
+Devices in Network 1:
+Get IP addresses from the 192.168.1.0/24 range (like 192.168.1.5, 192.168.1.6, etc.)
+Their default gateway is 192.168.1.1 (the router's IP address on that network)
+NOT the entire CIDR block, but specifically the router's IP address on that network
+
+Devices in Network 2:
+Get IP addresses from the 192.168.2.0/24 range
+Their default gateway is 192.168.2.1 (the router's IP address on that network)
+
+The default gateway for a device is not the CIDR block itself, but rather the specific IP address that the router uses on that network interface. This is the entry/exit point that devices use to communicate with other networks.
+When a device wants to send data to another network, it sends the data to its default gateway (the router's IP on its network), and the router then forwards it to the appropriate network.
 
 # MAC -  
 Mac address is 12 digits address (physical address).
@@ -41,7 +54,7 @@ Mac address is 12 digits address (physical address).
 2. on mac - ifconfig en0 | grep ether
 
 # ARP (address resolution protocol) - 
-ARP is needed to translate IP to MAC and used only witin lan.
+ARP is needed to translate IP to MAC and used only within lan.
 - when a laptopA wants to connect with laptopB then it needs mac of B and only then via switch it con connect, so A ask ARP table and if ARP has corresponding mac then it gives to A or ARP brodcast message asking "hey device with IP ....., give me your mac" and then get mac of that ip (from laptopB) and thats it.
 now laptopA has mac and ip and it can now send request and due to mac address, now switch will make this connection.
 

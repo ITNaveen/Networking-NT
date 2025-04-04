@@ -1,6 +1,6 @@
 1. we type IP as decimal number like - 10.1.1.5, now computer convert this in binary number for processing.
 2. Each decimal number (between dots) is called an octet, and each octet consists of 8 bits. So, 10.1.1.5 is made up of 4 octets, each represented as 8-bit binary numbers. 
-3. this make ipv4 address of total of 32 bits.
+3. this make ipv4 address of total of 32 bits. IPv4 addresses are 32 bits in total, which equals 4 bytes.
 
 # BIT UNDERSTANDING - (8 bits = 1 byte)
 Think of an 8-bit binary number as a row of 8 switches, each controlling a specific power of 2:
